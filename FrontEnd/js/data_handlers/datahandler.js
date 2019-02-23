@@ -1,24 +1,12 @@
 const {dialog} = require('electron').remote;
 const fs = require('fs');
+const EventEmitter = require('events');
 
-function readTextFile(filePath){
+class MyEmitter extends EventEmitter {}
 
-    let rawFile = new XMLHttpRequest();
-    let data = "";
-    rawFile.open("GET", filePath, false);
-    rawFile.onreadystatechange = function(){
-        if(rawFile.readyState === 4)
-        {
-            if(rawFile.status === 200 || rawFile.status == 0)
-            {
-                data = rawFile.responseText;
-            }
-        }
-    }
-    rawFile.send(null);
-    return data;
+const OnDataLoaded = new MyEmitter();
 
-}
+
 
 document.querySelector("#btnLoadFile").addEventListener('click', function(event){
     dialog.showOpenDialog({
@@ -26,8 +14,7 @@ document.querySelector("#btnLoadFile").addEventListener('click', function(event)
     },function(files)
     {
         if(files !== undefined){
-            console.log("processing the files");
-
+            
             let rowData = [];
 
             let dataFS = fs.readFileSync(files[0]);
@@ -43,8 +30,7 @@ document.querySelector("#btnLoadFile").addEventListener('click', function(event)
                 obj["pairMatches"] = col[4];
                 rowData.push(obj);
             });
-                
-            console.log(`${rowData[0].name}`);
+            OnDataLoaded.emit('data_loaded', rowData);
             }
         }  
     );
