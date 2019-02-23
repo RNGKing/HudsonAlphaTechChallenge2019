@@ -32,7 +32,3 @@ app.on('activate', () =>{
         createWindow();
     }
 });
-
-ipc.on('btnLoadFileClicked', function(event, args){
-    console.log("Message received");
-});

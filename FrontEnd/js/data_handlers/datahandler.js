@@ -1,34 +1,51 @@
 const {dialog} = require('electron').remote;
-const {readFileSync} = require('fs').readFileSync;
+const fs = require('fs');
+
+function readTextFile(filePath){
+
+    let rawFile = new XMLHttpRequest();
+    let data = "";
+    rawFile.open("GET", filePath, false);
+    rawFile.onreadystatechange = function(){
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                data = rawFile.responseText;
+            }
+        }
+    }
+    rawFile.send(null);
+    return data;
+
+}
 
 document.querySelector("#btnLoadFile").addEventListener('click', function(event){
     dialog.showOpenDialog({
         properties:['openFile' ]
-    },function(files){
+    },function(files)
+    {
         if(files !== undefined){
             console.log("processing the files");
 
-
             let rowData = [];
 
-            let data = readFileSync(files[0]);
-
-            let rows = data.split('\n');
-            for(let r in rows){
+            let dataFS = fs.readFileSync(files[0]);
+                
+            let rows = dataFS.toString('utf8').split('\n');
+            rows.forEach(function(row){
                 let obj = {};
-                let col = r.split('\t');
-                obj.name = col[0];
-                obj.start = col[1];
-                for(let prop in col[3]){
-                    prop.split('|');
-                    obj.end = prop[0];
-                    obj.intersections = prop[1];
-                    obj.pairmatches = prop[2];
-                }
+                let col = row.split('\t');
+                obj["name"] = col[0];
+                obj["startPos"] = col[1];
+                obj["endPos"] = col[2];
+                obj["intersections"] = col[3];
+                obj["pairMatches"] = col[4];
                 rowData.push(obj);
+            });
+                
+            console.log(`${rowData[0].name}`);
             }
-            console.log(`Number of rows dectected ${rowData.length}`);
-        }
-    }
+        }  
     );
 });
