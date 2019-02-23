@@ -11,19 +11,24 @@
     </head>
 
     <body class="grey lighten-2">
-      <div class="navbar-fixed">
+      <input type="file" id="fileManagement" style="display: none"/>
+      <div class="navbar-fixed ">
           <nav>
-            <div class="nav-wrapper">
+            <div class="nav-wrapper lime">
               <a href="#!" class="brand-logo center">Project d. NA</a>
-              <ul class="right hide-on-med-and-down">
-              </ul>
             </div>
           </nav>
       </div>
-      <div class="container grey lighten-4">
-          <div class="child"> This is more holding text</div>
+      <div class="container">
+          <div class="centerMe">
+
+            <span id="fileManagement">File Management</span>
+            
+            <a class="waves-effect waves-light btn centerHorizontal lime" id="btnLoadFile">Load File</a>            
+          </div>
       </div>
       <!--JavaScript at end of body for optimized loading-->
-      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script type="text/javascipt" src="js/jquery-3.3.1.js"></script>
+      <script type="text/javascript" src="js/data_handlers/datahandler.js"></script>
     </body>
   </html>
