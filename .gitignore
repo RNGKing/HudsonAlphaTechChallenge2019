@@ -66,3 +66,6 @@ typings/
 tags
 
 .eslintrc.json
+
+# Data
+data/tidy
