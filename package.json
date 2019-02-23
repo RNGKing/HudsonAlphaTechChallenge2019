@@ -1,0 +1,35 @@
+{
+  "name": "hudsonalphatechchallenge2019",
+  "version": "0.0.1",
+  "description": "Node Repository for Project d.NA's entry in the 2019 Hudson Alpha Tech Challenge ",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RNGKing/HudsonAlphaTechChallenge2019.git"
+  },
+  "keywords": [
+    "Hudson",
+    "Alpha",
+    "Tech",
+    "Challenge",
+    "2019",
+    "Javascript",
+    "NodeJS",
+    "ElectronJS",
+    "Graphing",
+    "Genetics"
+  ],
+  "author": "Patrick Phillips, Leon Kennedy, Kaleb Eskridge",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RNGKing/HudsonAlphaTechChallenge2019/issues"
+  },
+  "homepage": "https://github.com/RNGKing/HudsonAlphaTechChallenge2019#readme",
+  "devDependencies": {
+    "electron": "^4.0.5",
+    "eslint": "^5.14.1"
+  }
+}
