@@ -1,20 +1,12 @@
 ﻿using CsvHelper;
 using HudsonAlphaTechChallenge2019.DataAnalysis.ViewModels;
 using HudsonAlphaTechChallenge2019.FileManager.Model;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace HudsonAlphaTechChallenge2019.DataAnalysis.View
@@ -28,35 +20,58 @@ namespace HudsonAlphaTechChallenge2019.DataAnalysis.View
         {
             InitializeComponent();
             DataContext = new DataAnalysisViewModel();
+            
         }
 
         public void LoadData(List<FileDataModel> files)
         {
             (DataContext as DataAnalysisViewModel).LoadData(files);
+            DrawData();
         }
 
-        public void DrawInformation()
+        private void DrawData()
         {
-            var model = (DataContext as DataAnalysisViewModel).GeneticData;
-            var maxVal = model.Max(x => x.EndPosition);
-            var scalingRatio = RenderSurface.Width / maxVal;
-            foreach (var g in model)
+            var maximumVal = (DataContext as DataAnalysisViewModel).GeneticData.Max(x => x.EndPosition);
+            var scaleRatio = canvasData.Width / maximumVal;
+            int yOffset = 0;
+            foreach (var dc in (DataContext as DataAnalysisViewModel).DataCache)
             {
-                var rect = new Rectangle();
-                rect.Width = (scalingRatio * g.EndPosition) - (scalingRatio * g.StartPosition);
-                rect.Height = 45;
-                rect.Fill = new SolidColorBrush(Colors.Red);
-                rect.Stroke = new SolidColorBrush(Colors.Black);
-                rect.StrokeThickness = 2;
-                Canvas.SetLeft(rect, (scalingRatio * g.StartPosition));
-                
-                RenderSurface.Children.Add(rect);
+                foreach(var data in dc)
+                {
+                    Rectangle rect = new Rectangle();
+                    var width = (data.EndPosition - data.StartPosition) * scaleRatio * 1000;
+                    var height = 35;
+                    rect.Width = width;
+                    rect.Height = height;
+                    rect.Fill = (SolidColorBrush)(new BrushConverter().ConvertFrom("#cedc38"));
+
+
+                    Canvas.SetLeft(rect, data.StartPosition * scaleRatio * 1000);
+                    Canvas.SetTop(rect, yOffset);
+                    
+                    canvasData.Children.Add(rect);
+                }
+                yOffset += 75;
+                Line line = new Line();
+                line.X1 = 0;
+                line.X2 = canvasData.Width;
+                line.Y1 = yOffset - 20;
+                line.Y2 = yOffset - 20;
+                line.Stroke = new SolidColorBrush(Colors.White);
+                line.StrokeThickness = 15;
+                canvasData.Children.Add(line);
             }
         }
+
+       
 
         private void BtnApplyFilter_Click(object sender, RoutedEventArgs e)
         {
             // This is where we'd structure a query
+            // But For this hackathon I will not do that, intead filter the data
+
+            
+
         }
 
         private void BtnSaveToCSV_Click(object sender, RoutedEventArgs e)

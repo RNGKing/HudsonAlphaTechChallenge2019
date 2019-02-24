@@ -17,7 +17,7 @@
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
         
-        Title="MainWindow" Height="900" Width="1280">
+        Title="Project D.NA" Height="900" Width="1280">
     <Grid>
         <view:FileLoader x:Name="fileManager" OnUserWantsToLoadFiles="FileLoader_OnUserWantsToLoadFiles"></view:FileLoader>
         <view1:DataAnalysisView x:Name="dataAnalysisView" Visibility="Hidden"></view1:DataAnalysisView>
