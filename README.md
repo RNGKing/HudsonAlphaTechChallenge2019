@@ -56,4 +56,4 @@ If performance on the target machine is not adaquate, its is most likely due to 
 
 ### Deploying.
 
-The `bedops` package is a readily available open source package. To install on Ubuntu, a simple `sudo apt install bedops` is all that is needed. All of the remaining data analysis is performed using the `bash` shell scripting language which is typically pre-installed on most *nix distributions.
+The `bedops` package is a readily available open source package. To install on Ubuntu, a simple `sudo apt install bedops` is all that is needed. The remaining data analysis is performed using the `bash` shell scripting language which is pre-installed on most *nix distributions.
