@@ -10,7 +10,7 @@ Given a set of BED files, produce and visualize data that characterizes the amou
 
 ## Solution
 
-**See the README.md file in the `scripts` directory for instuctions on executing.**
+**See the README.md file in the `scripts` directory for instructions on executing.**
 
 We have provided a simple, elegant, and performant solution that meets every all of the criteria identified by the challenge sponsers as desirible for an ideal solution.
 
@@ -25,9 +25,7 @@ We spent many hours researching existing tools that could be used to solve this 
 
 We've packaged access to this tool in some simple shell scripts for ease of use conducted extensive testing of its fitness of purpose.
 
-The result is a production ready tool that is simple enough that "even a genomics researcher can use it".
-
-Yes, these are brilliant scientist, but they are not necessarily expert programers so we've focused on a simple solution that can be easily used and maintained by the end user.
+The result is a production ready tool that is simple enough that "even a genomics researcher can use it". Yes, these are brilliant scientist, but they are not necessarily expert programmers so we've focused on a simple solution that can be easily used and maintained by the end user.
 
 ### Output
 
@@ -62,7 +60,7 @@ The performance tests can be repeated on the target machine by executing
 
 The data is presorted before being parsed by the `bedmap` algorithm. This means that only the small portion of data that is being compared at the time needs to be loaded into memory.
 
-If performance on the target machine is not adaquate, its is most likely due to file I/O. To boost perforamce, upgrade to a faster hard drive. We've included the performance measurement tools here to help you justify that high speed SSD you've been wanting!
+If performance on the target machine is not adequate, its is most likely due to file I/O. To boost performance, upgrade to a faster hard drive. We've included the performance measurement tools here to help you justify that high speed SSD you've been wanting!
 
 
 ### Deploying.
