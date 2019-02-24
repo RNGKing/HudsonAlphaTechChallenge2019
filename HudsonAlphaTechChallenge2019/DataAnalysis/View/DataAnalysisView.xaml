@@ -24,7 +24,8 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <ScrollViewer Grid.Row="0" Background="Beige" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden">
+        <Canvas Name="canvasNames" Panel.ZIndex="1" Grid.Row="0"/>
+        <ScrollViewer Grid.Row="0" Panel.ZIndex="0" Background="Beige" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden">
             <Canvas Name="canvasData" Width="10000"/>
         </ScrollViewer>
         <Grid Grid.Row="1">
