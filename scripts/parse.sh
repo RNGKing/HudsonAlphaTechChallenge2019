@@ -6,7 +6,7 @@ prefix=${2:-../results}
 # Normalize the prefix path
 prefix=$(readlink -f $prefix)
 
-resultfile=$prefix/result.out
+resultfile=$prefix/result.bed
 
 # Determine options for overlap
 overlap="--bp-ovr $N" # Positive values

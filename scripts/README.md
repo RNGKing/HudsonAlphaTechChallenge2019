@@ -12,7 +12,19 @@ The `prep4parse.sh` script accepts an input file directory path and an output fi
 
 ## Parse the data.
 
-The `parse.sh` script accepts a numeric value indicating the number of overlapping basepairs required to inidicate a match. The value may be negative, meaning that the requested number of matches are found within a proximate range. A directory can also be scecified. The specified directory will be scanned for `*.in.bed` files. These files are the output of the `prep4parse.sh` script above. A `results.out` file is generated into the specified output directory.
+The `parse.sh` script accepts a numeric value indicating the number of overlapping basepairs required to inidicate a match. The value may be negative, meaning that the requested number of matches are found within a proximate range. A directory can also be scecified. The specified directory will be scanned for `*.in.bed` files. These files are the output of the `prep4parse.sh` script above. A `results.bed` file is generated into the specified output directory.
+
+## Output
+
+The output is a tab-delimited BED file. The first three columns are an echo
+of the input data. The fourth column is the file used as a reference.
+The fifth column is the total number of base pairs matched across all files.
+The total number of base pairs matched can be used along with the number of
+files matched in to assert the strength of the match.
+
+| Chromosone | start | end | from filename | # matches | # matching BPs |
+|:----------:|:-----:|:---:|:-------------:|:---------:|:--------------:|
+
 
 ## Performance testing
 
@@ -22,11 +34,11 @@ Processing the data took less than 1 minute.
 
 Process 50 replicas of the same data took less than 2-1/2 min resulting in an output file with over 21M  21,630,200 lines of data.
 
-| files | # comparisons | processing time
-|:-----:|:-------------:|:--------------:
-| 10    | 43260400      | 19s
-| 25    | 10815100      | 58s
-| 50    | 21630200      | 2m 25s
+| files | # lines compared | processing time
+|:-----:|:----------------:|:--------------:
+| 10    | 43260400         | 19s
+| 25    | 10815100         | 58s
+| 50    | 21630200         | 2m 25s
 
 The performance tests can be repeated on the target machine by executing
 ```
