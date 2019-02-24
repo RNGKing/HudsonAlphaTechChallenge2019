@@ -49,7 +49,7 @@ The performance tests can be repeated on the target machine by executing
 ./pertest <num copies>
 ```
 
-The data is presorted so a minimum before being parsed by the `bedmap` algorithm. This means that only the small portion of the data that is being compared at the time needs to be loaded into memory.
+The data is presorted before being parsed by the `bedmap` algorithm. This means that only the small portion of data that is being compared at the time needs to be loaded into memory.
 
 If performance on the target machine is not adaquate, its is most likely due to file I/O. To boost perforamce, upgrade to a faster hard drive. We've included the performance measurement tools here to help you justify that high speed SSD you've been wanting!
 
