@@ -1,6 +1,6 @@
 #!/bin/bash
 
-inputdir=${1:-../raw}
+inputdir=${1:-../data/raw}
 outputdir=${2:-../results}
 
 # Clean up previous results
