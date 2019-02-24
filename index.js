@@ -13,11 +13,7 @@ function createWindow(){
     win.on('closed', () =>{
         win = null;
     });
-
-    
 }
-
-
 
 app.on('ready', createWindow);
 
@@ -31,8 +27,4 @@ app.on('activate', () =>{
     if(win === null){
         createWindow();
     }
-});
-
-ipc.on('btnLoadFileClicked', function(event, args){
-    console.log("Message received");
 });
