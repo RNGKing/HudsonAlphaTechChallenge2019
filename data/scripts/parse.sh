@@ -1,8 +1,7 @@
 #!/bin/bash
 
 N=${1:-1}
-k=${2:-1}
-prefix=${3:-../tidy}
+prefix=${2:-../tidy}
 
 # Normalize the prefix path
 prefix=$(readlink -f $prefix)
@@ -16,8 +15,10 @@ if [ $N -le 0 ]; then
     overlap="--range $N" # Zero or negative (--range 0 is the same as --bp-ovr 1)
 fi
 
-echo "Comparing with N=" $N " k="$k " using " $overlap
+echo "Comparing with N=" $N " using " $overlap
 echo "Writing result to " $resultfile
+
+# --ec does an error check to confirm we have valid BED data.
+# --sweep-all prevents SIGPIPE errors
 bedops --everything --ec $prefix/*.in.bed \
     | bedmap --echo $overlap --count --bases --delim '\t' --sweep-all - > $resultfile
-

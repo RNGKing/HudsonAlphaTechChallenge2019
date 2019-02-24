@@ -14,9 +14,9 @@ The `prep4parse.sh` script accepts an input file directory path and an output fi
 
 The `parse.sh` script accepts a numeric value indicating the number of overlapping basepairs required to inidicate a match. The value may be negative, meaning that the requested number of matches are found within a proximate range. A directory can also be scecified. The specified directory will be scanned for `*.in.bed` files. These files are the output of the `prep4parse.sh` script above. A `results.out` file is generated into the specified directory.
 
-## Stress testing
+## Performance testing
 
-To test the scalability. we started with 25 copies of an [HG39 BED file](https://useast.ensembl.org/info/data/ftp/index.html) with 432604 lines of data in each file. Testing was performed on a Linux laptop with 8 2.7GHz cores Linux and 64GB of RAM and SSD.
+To test the scalability. we started with 25 copies of an [HG38 BED file](https://useast.ensembl.org/info/data/ftp/index.html) with 432604 lines of data in each file. Testing was performed on a Linux laptop with 8 2.7GHz cores Linux and 64GB of RAM and SSD.
 
 Processing the data took less than 1 minute.
 
@@ -24,5 +24,11 @@ Process 50 replicas of the same data took less than 2-1/2 min resulting in an ou
 
 | files | # comparisons | processing time
 |:-----:|:-------------:|:--------------:
+| 10    | 43260400      | 19s
 | 25    | 10815100      | 58s
 | 50    | 21630200      | 2m 25s
+
+The performance tests can be repeated on the target machine by executing
+```
+./pertest <num copies>
+```
