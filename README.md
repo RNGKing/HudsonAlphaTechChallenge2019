@@ -21,7 +21,7 @@ Although this work was done in a Hackathon format, what we are able to provide i
 
 ### Data Processing
 
-We spent many hours researching existing tools that could be used to solve this challenge. We found `bedmap` and one of the tools in the `bedops` package to be an ideal fit for the challenge. Most of the data procesing is implemented with `bedmap`. We leverage this proven and efficient tool for genomic data processing.
+We spent many hours researching existing tools that could be used to solve this challenge. We found `bedmap`, one of the tools in the `bedops` package to be an ideal fit for this challenge. We leverage this proven and efficient tool for our data processing.
 
 We've packaged access to this tool in some simple shell scripts for ease of use conducted extensive testing of its fitness of purpose.
 
@@ -53,3 +53,7 @@ The data is presorted before being parsed by the `bedmap` algorithm. This means 
 
 If performance on the target machine is not adaquate, its is most likely due to file I/O. To boost perforamce, upgrade to a faster hard drive. We've included the performance measurement tools here to help you justify that high speed SSD you've been wanting!
 
+
+### Deploying.
+
+The `bedops` package is a readily available open source package. To install on Ubuntu, a simple `sudo apt install bedops` is all that is needed. All of the remaining data analysis is performed using the `bash` shell scripting language which is typically pre-installed on most *nix distributions.
