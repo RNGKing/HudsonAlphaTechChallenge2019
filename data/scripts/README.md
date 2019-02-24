@@ -12,7 +12,7 @@ The `prep4parse.sh` script accepts an input file directory path and an output fi
 
 ## Parse the data.
 
-The `parse.sh` script accepts a numeric value indicating the number of overlapping basepairs required to inidicate a match. The value may be negative, meaning that the requested number of matches are found within a proximate range. A directory can also be scecified. The specified directory will be scanned for `*.in.bed` files. These files are the output of the `prep4parse.sh` script above. A `results.out` file is generated into the specified directory.
+The `parse.sh` script accepts a numeric value indicating the number of overlapping basepairs required to inidicate a match. The value may be negative, meaning that the requested number of matches are found within a proximate range. A directory can also be scecified. The specified directory will be scanned for `*.in.bed` files. These files are the output of the `prep4parse.sh` script above. A `results.out` file is generated into the specified output directory.
 
 ## Performance testing
 

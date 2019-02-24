@@ -1,7 +1,7 @@
 #!/bin/bash
 
 N=${1:-1}
-prefix=${2:-../tidy}
+prefix=${2:-../results}
 
 # Normalize the prefix path
 prefix=$(readlink -f $prefix)
@@ -15,7 +15,7 @@ if [ $N -le 0 ]; then
     overlap="--range $N" # Zero or negative (--range 0 is the same as --bp-ovr 1)
 fi
 
-echo "Comparing with N=" $N " using " $overlap
+echo "Comparing with N =" $N " using " $overlap
 echo "Writing result to " $resultfile
 
 # --ec does an error check to confirm we have valid BED data.
