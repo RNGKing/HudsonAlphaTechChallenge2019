@@ -16,7 +16,7 @@ We have provided a simple, elegant, and performant solution that meets every all
 
 By keeping the solution simple, we were able to focus on making sure the solution is complete, correct, and robust.
 
-Although this work was done in a Hackathon format, what we are able to provide is a complete, robust, production ready solution that can be put into use by scientist right now because cures can't wait!
+Although this work was done in a Hackathon format, what we are able to provide is **a complete, robust, production ready solution that can be put into use by scientist right now because cures can't wait!**
 
 
 ### Data Processing
