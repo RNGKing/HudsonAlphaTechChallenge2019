@@ -29,6 +29,17 @@ The result is a production ready tool that is simple enough that "even a genomic
 
 Yes, these are brilliant scientist, but they are not necessarily expert programers so we've focused on a simple solution that can be easily used and maintained by the end user.
 
+### Output
+
+The output is a tab-delimited BED file. The first three columns are an echo
+of the input data. The fourth column is the file used as a reference.
+The fifth column is the total number of base pairs matched across all files.
+The total number of base pairs matched can be used along with the number of
+files matched in to assert the strength of the match.
+
+| Chromosone | start | end | from filename | # matches | # matching BPs |
+|:----------:|:-----:|:---:|:-------------:|:---------:|:--------------:|
+
 
 ### Scalability
 
